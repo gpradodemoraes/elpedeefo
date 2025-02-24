@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="XPDFBUILD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Zoox.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -283,6 +280,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FixedPoint.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoFiType1C.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoFiType1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoFiTrueType.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoFiIdentifier.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoFiEncodings.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FoFiBase.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -567,6 +582,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Trace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FoFiBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FoFiEncodings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FoFiIdentifier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FoFiTrueType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FoFiType1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FoFiType1C.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

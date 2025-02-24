@@ -9,6 +9,8 @@
 #ifndef ACONF_H
 #define ACONF_H
 #define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_NONSTDC_NO_DEPRECATE 1
+#pragma warning(disable : 4996)
 /*
  * Speed up Windows compilation.  This will only work for the command
  * line tools.
@@ -88,9 +90,9 @@
 #define HAVE_MKSTEMPS 1
 #define HAVE_POPEN
 #define HAVE_STD_SORT 1
-#define HAVE_FSEEKO 1
+#define HAVE_FSEEKO 0
 #define HAVE_FSEEK64 0
-#define HAVE_FSEEKI64 0
+#define HAVE_FSEEKI64 1
 #define _FILE_OFFSET_BITS 64
 #define _LARGE_FILES 1
 #define _LARGEFILE_SOURCE 1

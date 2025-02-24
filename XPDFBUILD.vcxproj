@@ -70,6 +70,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -141,6 +144,12 @@
     <ClCompile Include="DisplayState.cc" />
     <ClCompile Include="Error.cc" />
     <ClCompile Include="FixedPoint.cc" />
+    <ClCompile Include="FoFiBase.cc" />
+    <ClCompile Include="FoFiEncodings.cc" />
+    <ClCompile Include="FoFiIdentifier.cc" />
+    <ClCompile Include="FoFiTrueType.cc" />
+    <ClCompile Include="FoFiType1.cc" />
+    <ClCompile Include="FoFiType1C.cc" />
     <ClCompile Include="FontEncodingTables.cc" />
     <ClCompile Include="Function.cc" />
     <ClCompile Include="gfile.cc" />
@@ -215,7 +224,6 @@
     <ClCompile Include="UTF8.cc" />
     <ClCompile Include="WebFont.cc" />
     <ClCompile Include="XFAScanner.cc" />
-    <ClCompile Include="XPDFBUILD.cpp" />
     <ClCompile Include="XRef.cc" />
     <ClCompile Include="Zoox.cc" />
   </ItemGroup>
@@ -237,6 +245,12 @@
     <ClInclude Include="Error.h" />
     <ClInclude Include="ErrorCodes.h" />
     <ClInclude Include="FixedPoint.h" />
+    <ClInclude Include="FoFiBase.h" />
+    <ClInclude Include="FoFiEncodings.h" />
+    <ClInclude Include="FoFiIdentifier.h" />
+    <ClInclude Include="FoFiTrueType.h" />
+    <ClInclude Include="FoFiType1.h" />
+    <ClInclude Include="FoFiType1C.h" />
     <ClInclude Include="FontEncodingTables.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="gfile.h" />
