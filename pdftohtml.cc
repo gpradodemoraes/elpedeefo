@@ -107,7 +107,7 @@ static int writeToFile(void *file, const char *data, int size) {
   return (int)fwrite(data, 1, size, (FILE *)file);
 }
 
-int NOTmain(int argc, char *argv[]) {
+int NOT5main(int argc, char *argv[]) {
 #if USE_EXCEPTIONS
   try {
 #endif
