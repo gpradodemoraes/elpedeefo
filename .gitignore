@@ -2,3 +2,4 @@
 XPDFBUILD
 x64
 vcpkg_installed
+testdata
