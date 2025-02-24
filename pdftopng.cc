@@ -98,7 +98,7 @@ static void setupPNG(png_structp *png, png_infop *pngInfo, FILE *f,
 static void writePNGData(png_structp png, SplashBitmap *bitmap);
 static void finishPNG(png_structp *png, png_infop *pngInfo);
 
-int main(int argc, char *argv[]) {
+int NOTmain(int argc, char *argv[]) {
 #if USE_EXCEPTIONS
   try {
 #endif

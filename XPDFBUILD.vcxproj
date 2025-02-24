@@ -175,6 +175,7 @@
     <ClCompile Include="Outline.cc" />
     <ClCompile Include="OutputDev.cc" />
     <ClCompile Include="Page.cc" />
+    <ClCompile Include="parseargs.c" />
     <ClCompile Include="Parser.cc" />
     <ClCompile Include="PDF417Barcode.cc" />
     <ClCompile Include="PDFCore.cc" />

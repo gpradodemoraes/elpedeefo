@@ -93,7 +93,7 @@ static ArgDesc argDesc[] = {
   {NULL}
 };
 
-int main(int argc, char *argv[]) {
+int NOTmain(int argc, char *argv[]) {
 #if USE_EXCEPTIONS
   try {
 #endif

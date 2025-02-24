@@ -95,7 +95,7 @@ static int fontsSize;
 static char *seenObjs;
 static int numObjects;
 
-int main(int argc, char *argv[]) {
+int NOTmain(int argc, char *argv[]) {
 #if USE_EXCEPTIONS
   try {
 #endif
