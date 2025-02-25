@@ -131,7 +131,7 @@ static ArgDesc argDesc[] = {
   {NULL}
 };
 
-int main(int argc, char *argv[]) {
+int convertpdftotext(int argc, char *argv[]) {
 #if USE_EXCEPTIONS
   try {
 #endif

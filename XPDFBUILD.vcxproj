@@ -40,13 +40,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -107,7 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\gprad\XPDFBUILD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,6 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +143,7 @@
     <ClCompile Include="Decrypt.cc" />
     <ClCompile Include="Dict.cc" />
     <ClCompile Include="DisplayState.cc" />
+    <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Error.cc" />
     <ClCompile Include="FixedPoint.cc" />
     <ClCompile Include="FoFiBase.cc" />
@@ -177,6 +179,7 @@
     <ClCompile Include="Page.cc" />
     <ClCompile Include="parseargs.c" />
     <ClCompile Include="Parser.cc" />
+    <ClCompile Include="pch.cpp" />
     <ClCompile Include="PDF417Barcode.cc" />
     <ClCompile Include="PDFCore.cc" />
     <ClCompile Include="pdfdetach.cc" />
@@ -253,6 +256,7 @@
     <ClInclude Include="FoFiType1.h" />
     <ClInclude Include="FoFiType1C.h" />
     <ClInclude Include="FontEncodingTables.h" />
+    <ClInclude Include="framework.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="gfile.h" />
     <ClInclude Include="Gfx.h" />
@@ -282,10 +286,12 @@
     <ClInclude Include="Page.h" />
     <ClInclude Include="parseargs.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="pch.h" />
     <ClInclude Include="PDF417Barcode.h" />
     <ClInclude Include="PDFCore.h" />
     <ClInclude Include="PDFDoc.h" />
     <ClInclude Include="PDFDocEncoding.h" />
+    <ClInclude Include="pdftotext.h" />
     <ClInclude Include="PreScanOutputDev.h" />
     <ClInclude Include="PSOutputDev.h" />
     <ClInclude Include="PSTokenizer.h" />

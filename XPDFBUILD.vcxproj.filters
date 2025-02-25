@@ -303,6 +303,12 @@
     <ClCompile Include="parseargs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AcroForm.h">
@@ -603,6 +609,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FoFiType1C.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pdftotext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
