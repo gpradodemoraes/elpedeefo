@@ -5,7 +5,7 @@
 // Copyright 1997-2013 Glyph & Cog, LLC
 //
 //========================================================================
-
+#include "pdftotext.h"
 #include <aconf.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -165,7 +165,7 @@ int convertpdftotext(int argc, char *argv[]) {
   exitCode = 99;
 
   // parse args
-  fixCommandLine(&argc, &argv);
+  //fixCommandLine(&argc, &argv);
   ok = parseArgs(argDesc, &argc, argv);
   if (ok && listEncodings) {
     // list available encodings
