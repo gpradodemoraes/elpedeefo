@@ -6,4 +6,4 @@
 #define CONVERTPDFTOTEXT_API __declspec(dllimport)
 #endif
 
-extern "C" CONVERTPDFTOTEXT_API int convertpdftotext(int argc, char* argv[]);
+extern "C" CONVERTPDFTOTEXT_API int convertpdftotext(int argc, char* argv[],char **retpointer);

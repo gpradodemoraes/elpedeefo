@@ -139,7 +139,7 @@ static ArgDesc argDesc[] = {
   {NULL}
 };
 
-int convertpdftotext(int argc, char *argv[]) {
+int convertpdftotext(int argc,char *argv[],char **retpointer) {
 #if USE_EXCEPTIONS
   try {
 #endif
@@ -315,6 +315,7 @@ int convertpdftotext(int argc, char *argv[]) {
 
   memset(address,'\0',2000);
   textOut = new TextOutputDev(&outputToMemory,address,&textOutControl);
+  *retpointer = address;
 
   //textOut = new TextOutputDev(textFileName->getCString(), &textOutControl,
 	//		      gFalse, gTrue);
