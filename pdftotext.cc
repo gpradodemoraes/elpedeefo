@@ -65,6 +65,14 @@ static GBool listEncodings = gFalse;
 static GBool printVersion = gFalse;
 static GBool printHelp = gFalse;
 
+static char* address = (char*)malloc(200000);
+static void outputToMemory(void *stream,const char *text,int len) {
+	static int totallenght = 0;
+
+	memcpy((char*)(totallenght + (char*)stream),text,len);
+	totallenght += len;
+}
+
 static ArgDesc argDesc[] = {
   {"-f",       argInt,      &firstPage,     0,
    "first page to convert"},
@@ -304,8 +312,13 @@ int convertpdftotext(int argc, char *argv[]) {
   textOutControl.marginRight = marginRight;
   textOutControl.marginTop = marginTop;
   textOutControl.marginBottom = marginBottom;
-  textOut = new TextOutputDev(textFileName->getCString(), &textOutControl,
-			      gFalse, gTrue);
+
+  memset(address,'\0',2000);
+  textOut = new TextOutputDev(&outputToMemory,address,&textOutControl);
+
+  //textOut = new TextOutputDev(textFileName->getCString(), &textOutControl,
+	//		      gFalse, gTrue);
+
   if (textOut->isOk()) {
     doc->displayPages(textOut, firstPage, lastPage, 72, 72, 0,
 		      gFalse, gTrue, gFalse);

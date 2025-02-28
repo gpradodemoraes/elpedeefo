@@ -6813,8 +6813,10 @@ void TextPage::dumpUnderlines() {
 //------------------------------------------------------------------------
 
 static void outputToFile(void *stream, const char *text, int len) {
+	printf("TEXTOUT 01: %s\n",text);
   fwrite(text, 1, len, (FILE *)stream);
 }
+
 
 TextOutputDev::TextOutputDev(char *fileName, TextOutputControl *controlA,
 			     GBool append, GBool fileNameIsUTF8) {
