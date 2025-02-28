@@ -65,7 +65,6 @@ static GBool listEncodings = gFalse;
 static GBool printVersion = gFalse;
 static GBool printHelp = gFalse;
 
-static char* address = (char*)malloc(200000);
 static void outputToMemory(void *stream,const char *text,int len) {
 	static int totallenght = 0;
 
@@ -313,9 +312,9 @@ int convertpdftotext(int argc,char *argv[],char **retpointer) {
   textOutControl.marginTop = marginTop;
   textOutControl.marginBottom = marginBottom;
 
-  memset(address,'\0',2000);
-  textOut = new TextOutputDev(&outputToMemory,address,&textOutControl);
-  *retpointer = address;
+  *retpointer = (char*)malloc(200000);
+  memset(*retpointer,'\0',200000);
+  textOut = new TextOutputDev(&outputToMemory,*retpointer,&textOutControl);
 
   //textOut = new TextOutputDev(textFileName->getCString(), &textOutControl,
 	//		      gFalse, gTrue);
