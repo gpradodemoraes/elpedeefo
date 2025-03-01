@@ -65,9 +65,15 @@ static GBool listEncodings = gFalse;
 static GBool printVersion = gFalse;
 static GBool printHelp = gFalse;
 
+/****
+* BY GABRIEL
+**/
 static void outputToMemory(void *stream,const char *text,int len) {
 	gambiarra *g = (gambiarra*)stream;
 	bool size_increased = false;
+	if(len == 1 && *text == '\n' && g->posicao > 0 && g->pointer[g->posicao - 1] == '\n')
+		return;
+
 	while(g->posicao + len + 1 > g->tamanho) {
 		g->tamanho *= 2;
 		size_increased = true;
