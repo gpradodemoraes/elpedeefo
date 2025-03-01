@@ -66,10 +66,24 @@ static GBool printVersion = gFalse;
 static GBool printHelp = gFalse;
 
 static void outputToMemory(void *stream,const char *text,int len) {
-	static int totallenght = 0;
+	gambiarra *g = (gambiarra*)stream;
+	bool size_increased = false;
+	while(g->posicao + len + 1 > g->tamanho) {
+		g->tamanho *= 2;
+		size_increased = true;
+	}
+	if(size_increased) {
+		char *temp = (char*)malloc(g->tamanho);
+		if(temp) {
+			memset(temp,'\0',g->tamanho);
+			memcpy(temp,g->pointer,g->posicao);
+			free(g->pointer);
+			g->pointer = temp;
+		}
+	}
 
-	memcpy((char*)(totallenght + (char*)stream),text,len);
-	totallenght += len;
+	memcpy((char*)(g->posicao + (char*)g->pointer),text,len);
+	g->posicao += len;
 }
 
 static ArgDesc argDesc[] = {
@@ -140,19 +154,20 @@ static ArgDesc argDesc[] = {
 
 int convertpdftotext(int argc,char *argv[],char **retpointer) {
 #if USE_EXCEPTIONS
-  try {
-#endif
+	try {
+		#endif
 
-  PDFDoc *doc;
-  char *fileName;
-  GString *textFileName;
-  GString *ownerPW, *userPW;
-  TextOutputControl textOutControl;
-  TextOutputDev *textOut;
-  UnicodeMap *uMap;
-  GBool ok;
-  char *p;
-  int exitCode;
+		PDFDoc *doc;
+		char *fileName;
+		GString *textFileName;
+		GString *ownerPW,*userPW;
+		TextOutputControl textOutControl;
+		TextOutputDev *textOut;
+		UnicodeMap *uMap;
+		GBool ok;
+		char *p;
+		int exitCode;
+		gambiarra gambi;
 
 #ifdef DEBUG_FP_LINUX
   // enable exceptions on floating point div-by-zero
@@ -312,9 +327,15 @@ int convertpdftotext(int argc,char *argv[],char **retpointer) {
   textOutControl.marginTop = marginTop;
   textOutControl.marginBottom = marginBottom;
 
-  *retpointer = (char*)malloc(200000);
-  memset(*retpointer,'\0',200000);
-  textOut = new TextOutputDev(&outputToMemory,*retpointer,&textOutControl);
+  gambi.tamanho = 2;
+  gambi.posicao = 0;
+  gambi.pointer = (char*)malloc(gambi.tamanho);
+  if(gambi.pointer)
+	  memset(gambi.pointer,'\0',gambi.tamanho);
+  else
+	  goto err3;
+
+  textOut = new TextOutputDev(&outputToMemory,&gambi,&textOutControl);
 
   //textOut = new TextOutputDev(textFileName->getCString(), &textOutControl,
 	//		      gFalse, gTrue);
@@ -322,11 +343,13 @@ int convertpdftotext(int argc,char *argv[],char **retpointer) {
   if (textOut->isOk()) {
     doc->displayPages(textOut, firstPage, lastPage, 72, 72, 0,
 		      gFalse, gTrue, gFalse);
+	*retpointer = gambi.pointer;
   } else {
     delete textOut;
     exitCode = 2;
     goto err3;
   }
+
   delete textOut;
 
   exitCode = 0;
