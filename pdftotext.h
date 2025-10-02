@@ -5,6 +5,7 @@
 #else
 #define CONVERTPDFTOTEXT_API __declspec(dllimport)
 #endif
+#include <stddef.h>
 
 struct gambiarra {
 	char *pointer;
