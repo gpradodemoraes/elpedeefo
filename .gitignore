@@ -3,3 +3,6 @@ XPDFBUILD
 x64
 vcpkg_installed
 testdata
+.idea/
+BUILD/
+cmake-build-debug/

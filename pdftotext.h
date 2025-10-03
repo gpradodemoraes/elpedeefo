@@ -12,4 +12,7 @@ struct gambiarra {
 	size_t tamanho;
 	int posicao;
 };
-extern "C" CONVERTPDFTOTEXT_API int convertpdftotext(int argc, char* argv[],char **retpointer);
+#ifdef __cplusplus
+extern "C"
+#endif
+CONVERTPDFTOTEXT_API int convertpdftotext(int argc, char* argv[],char **retpointer);

@@ -3,6 +3,8 @@ project(XPDFBUILD)
 
 set(CMAKE_CXX_STANDARD 14)
 
+set_source_files_properties(test.c PROPERTIES COMPILE_FLAGS -DXPDFBUILD_EXPORTS)
+
 # include_directories(.)
 include_directories(include)
 # include_directories(vcpkg_installed)
@@ -305,3 +307,11 @@ target_link_libraries(XPDFBUILD
 	freetype
     libpng16
     zlib)
+
+
+
+add_executable(test
+		test.c)
+
+target_link_libraries(test
+		XPDFBUILD)
