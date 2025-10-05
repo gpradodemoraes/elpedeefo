@@ -23,6 +23,7 @@ include_directories(vcpkg_installed/x64-windows/x64-windows/include/libpng16)
 link_directories(vcpkg_installed/x64-windows/x64-windows/lib)
 
 add_library(XPDFBUILD SHARED
+		external_include/pdftotext.h
         include/aconf.h
         vcpkg_installed/x64-windows/x64-windows/include/brotli/decode.h
         vcpkg_installed/x64-windows/x64-windows/include/brotli/encode.h
@@ -221,7 +222,6 @@ add_library(XPDFBUILD SHARED
         pdftoppm.cc
         pdftops.cc
         pdftotext.cc
-        pdftotext.h
         PreScanOutputDev.cc
         PreScanOutputDev.h
         PSOutputDev.cc
@@ -307,8 +307,15 @@ target_link_libraries(XPDFBUILD
 	freetype
     libpng16
     zlib)
+	
+set_target_properties(XPDFBUILD PROPERTIES
+    PUBLIC_HEADER "external_include/pdftotext.h"
+)
 
-install(TARGETS XPDFBUILD LIBRARY DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+install(TARGETS XPDFBUILD
+	LIBRARY DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/lib
+	RUNTIME DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin
+	PUBLIC_HEADER DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/include)
 
 
 add_executable(test

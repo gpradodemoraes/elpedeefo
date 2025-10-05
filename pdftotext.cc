@@ -5,7 +5,7 @@
 // Copyright 1997-2013 Glyph & Cog, LLC
 //
 //========================================================================
-#include "pdftotext.h"
+#include "external_include/pdftotext.h"
 #include <aconf.h>
 #include <stdio.h>
 #include <stdlib.h>

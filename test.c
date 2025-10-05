@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "pdftotext.h"
+#include "external_include/pdftotext.h"
 
 
 int main() {
