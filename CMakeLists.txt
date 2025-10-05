@@ -4,7 +4,6 @@ project(XPDFBUILD)
 set(CMAKE_CXX_STANDARD 14)
 
 set_source_files_properties(test.c PROPERTIES COMPILE_FLAGS -DXPDFBUILD_EXPORTS)
-set_source_files_properties(test.c PROPERTIES LANGUAGE C)
 
 # include_directories(.)
 include_directories(include)
@@ -309,6 +308,7 @@ target_link_libraries(XPDFBUILD
     libpng16
     zlib)
 
+install(TARGETS XPDFBUILD LIBRARY DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 
 add_executable(test
