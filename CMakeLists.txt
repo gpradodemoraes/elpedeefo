@@ -323,3 +323,21 @@ add_executable(test
 
 target_link_libraries(test
 		XPDFBUILD)
+
+set(THIRD_PARTY_DLLS
+	${CMAKE_SOURCE_DIR}/dependencies/bin/brotlicommon.dll
+	${CMAKE_SOURCE_DIR}/dependencies/bin/brotlidec.dll
+	${CMAKE_SOURCE_DIR}/dependencies/bin/brotlienc.dll
+	${CMAKE_SOURCE_DIR}/dependencies/bin/bz2.dll
+	${CMAKE_SOURCE_DIR}/dependencies/bin/freetype.dll
+	${CMAKE_SOURCE_DIR}/dependencies/bin/libpng16.dll
+	${CMAKE_SOURCE_DIR}/dependencies/bin/zlib1.dll)
+
+foreach(file_i ${THIRD_PARTY_DLLS})
+    add_custom_command(
+    TARGET XPDFBUILD
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND}
+    ARGS -E copy_if_different ${file_i} ${CMAKE_CURRENT_BINARY_DIR}
+)
+endforeach( file_i )
