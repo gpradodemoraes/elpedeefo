@@ -6,102 +6,102 @@ set(CMAKE_CXX_STANDARD 14)
 set_source_files_properties(test.c PROPERTIES COMPILE_FLAGS -DXPDFBUILD_EXPORTS)
 
 # include_directories(.)
-include_directories(include)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 # include_directories(vcpkg_installed)
 # include_directories(vcpkg_installed/x64-windows)
-# include_directories(vcpkg_installed/x64-windows/x64-windows)
-# include_directories(vcpkg_installed/x64-windows/x64-windows/bin)
-# include_directories(vcpkg_installed/x64-windows/x64-windows/lib)
-include_directories(vcpkg_installed/x64-windows/x64-windows/include)
-# include_directories(vcpkg_installed/x64-windows/x64-windows/include/brotli)
-# include_directories(vcpkg_installed/x64-windows/x64-windows/include/freetype)
-# include_directories(vcpkg_installed/x64-windows/x64-windows/include/freetype/config)
-include_directories(vcpkg_installed/x64-windows/x64-windows/include/libpng16)
-# add_subdirectory(vcpkg_installed/x64-windows/x64-windows/bin)
+# include_directories(dependencies)
+# include_directories(dependencies/bin)
+# include_directories(dependencies/lib)
+include_directories(${CMAKE_SOURCE_DIR}/dependencies/include)
+# include_directories(dependencies/include/brotli)
+# include_directories(dependencies/include/freetype)
+# include_directories(dependencies/include/freetype/config)
+include_directories(${CMAKE_SOURCE_DIR}/dependencies/include/libpng16)
+# add_subdirectory(dependencies/bin)
 # find_library(freetype_LIBRARY_PATH freetype.lib)
 
-link_directories(vcpkg_installed/x64-windows/x64-windows/lib)
+link_directories(${CMAKE_SOURCE_DIR}/dependencies/lib)
 
 add_library(XPDFBUILD SHARED
 		external_include/pdftotext.h
-        include/aconf.h
-        vcpkg_installed/x64-windows/x64-windows/include/brotli/decode.h
-        vcpkg_installed/x64-windows/x64-windows/include/brotli/encode.h
-        vcpkg_installed/x64-windows/x64-windows/include/brotli/port.h
-        vcpkg_installed/x64-windows/x64-windows/include/brotli/shared_dictionary.h
-        vcpkg_installed/x64-windows/x64-windows/include/brotli/types.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/config/ftconfig.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/config/ftheader.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/config/ftmodule.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/config/ftoption.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/config/ftstdlib.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/config/integer-types.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/config/mac-support.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/config/public-macros.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/freetype.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftadvanc.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftbbox.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftbdf.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftbitmap.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftbzip2.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftcache.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftchapters.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftcid.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftcolor.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftdriver.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/fterrdef.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/fterrors.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftfntfmt.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftgasp.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftglyph.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftgxval.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftgzip.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftimage.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftincrem.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftlcdfil.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftlist.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftlogging.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftlzw.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftmac.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftmm.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftmodapi.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftmoderr.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftotval.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftoutln.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftparams.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftpfr.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftrender.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftsizes.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftsnames.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftstroke.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftsynth.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftsystem.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/fttrigon.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/fttypes.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ftwinfnt.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/otsvg.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/t1tables.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/ttnameid.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/tttables.h
-        vcpkg_installed/x64-windows/x64-windows/include/freetype/tttags.h
-        vcpkg_installed/x64-windows/x64-windows/include/libpng16/png.h
-        vcpkg_installed/x64-windows/x64-windows/include/libpng16/pngconf.h
-        vcpkg_installed/x64-windows/x64-windows/include/libpng16/pnglibconf.h
-        vcpkg_installed/x64-windows/x64-windows/include/bzlib.h
-        vcpkg_installed/x64-windows/x64-windows/include/ft2build.h
-        vcpkg_installed/x64-windows/x64-windows/include/png.h
-        vcpkg_installed/x64-windows/x64-windows/include/pngconf.h
-        vcpkg_installed/x64-windows/x64-windows/include/pnglibconf.h
-        vcpkg_installed/x64-windows/x64-windows/include/zconf.h
-        vcpkg_installed/x64-windows/x64-windows/include/zlib.h
-        vcpkg_installed/x64-windows/x64-windows/lib/pkgconfig/bzip2.pc
-        vcpkg_installed/x64-windows/x64-windows/lib/pkgconfig/freetype2.pc
-        vcpkg_installed/x64-windows/x64-windows/lib/pkgconfig/libbrotlicommon.pc
-        vcpkg_installed/x64-windows/x64-windows/lib/pkgconfig/libbrotlidec.pc
-        vcpkg_installed/x64-windows/x64-windows/lib/pkgconfig/libbrotlienc.pc
-        vcpkg_installed/x64-windows/x64-windows/lib/pkgconfig/libpng.pc
-        vcpkg_installed/x64-windows/x64-windows/lib/pkgconfig/libpng16.pc
-        vcpkg_installed/x64-windows/x64-windows/lib/pkgconfig/zlib.pc
+        ${CMAKE_SOURCE_DIR}/include/aconf.h
+        ${CMAKE_SOURCE_DIR}/dependencies/include/brotli/decode.h
+        dependencies/include/brotli/encode.h
+        dependencies/include/brotli/port.h
+        dependencies/include/brotli/shared_dictionary.h
+        dependencies/include/brotli/types.h
+        dependencies/include/freetype/config/ftconfig.h
+        dependencies/include/freetype/config/ftheader.h
+        dependencies/include/freetype/config/ftmodule.h
+        dependencies/include/freetype/config/ftoption.h
+        dependencies/include/freetype/config/ftstdlib.h
+        dependencies/include/freetype/config/integer-types.h
+        dependencies/include/freetype/config/mac-support.h
+        dependencies/include/freetype/config/public-macros.h
+        dependencies/include/freetype/freetype.h
+        dependencies/include/freetype/ftadvanc.h
+        dependencies/include/freetype/ftbbox.h
+        dependencies/include/freetype/ftbdf.h
+        dependencies/include/freetype/ftbitmap.h
+        dependencies/include/freetype/ftbzip2.h
+        dependencies/include/freetype/ftcache.h
+        dependencies/include/freetype/ftchapters.h
+        dependencies/include/freetype/ftcid.h
+        dependencies/include/freetype/ftcolor.h
+        dependencies/include/freetype/ftdriver.h
+        dependencies/include/freetype/fterrdef.h
+        dependencies/include/freetype/fterrors.h
+        dependencies/include/freetype/ftfntfmt.h
+        dependencies/include/freetype/ftgasp.h
+        dependencies/include/freetype/ftglyph.h
+        dependencies/include/freetype/ftgxval.h
+        dependencies/include/freetype/ftgzip.h
+        dependencies/include/freetype/ftimage.h
+        dependencies/include/freetype/ftincrem.h
+        dependencies/include/freetype/ftlcdfil.h
+        dependencies/include/freetype/ftlist.h
+        dependencies/include/freetype/ftlogging.h
+        dependencies/include/freetype/ftlzw.h
+        dependencies/include/freetype/ftmac.h
+        dependencies/include/freetype/ftmm.h
+        dependencies/include/freetype/ftmodapi.h
+        dependencies/include/freetype/ftmoderr.h
+        dependencies/include/freetype/ftotval.h
+        dependencies/include/freetype/ftoutln.h
+        dependencies/include/freetype/ftparams.h
+        dependencies/include/freetype/ftpfr.h
+        dependencies/include/freetype/ftrender.h
+        dependencies/include/freetype/ftsizes.h
+        dependencies/include/freetype/ftsnames.h
+        dependencies/include/freetype/ftstroke.h
+        dependencies/include/freetype/ftsynth.h
+        dependencies/include/freetype/ftsystem.h
+        dependencies/include/freetype/fttrigon.h
+        dependencies/include/freetype/fttypes.h
+        dependencies/include/freetype/ftwinfnt.h
+        dependencies/include/freetype/otsvg.h
+        dependencies/include/freetype/t1tables.h
+        dependencies/include/freetype/ttnameid.h
+        dependencies/include/freetype/tttables.h
+        dependencies/include/freetype/tttags.h
+        dependencies/include/libpng16/png.h
+        dependencies/include/libpng16/pngconf.h
+        dependencies/include/libpng16/pnglibconf.h
+        dependencies/include/bzlib.h
+        dependencies/include/ft2build.h
+        dependencies/include/png.h
+        dependencies/include/pngconf.h
+        dependencies/include/pnglibconf.h
+        dependencies/include/zconf.h
+        dependencies/include/zlib.h
+        dependencies/lib/pkgconfig/bzip2.pc
+        dependencies/lib/pkgconfig/freetype2.pc
+        dependencies/lib/pkgconfig/libbrotlicommon.pc
+        dependencies/lib/pkgconfig/libbrotlidec.pc
+        dependencies/lib/pkgconfig/libbrotlienc.pc
+        dependencies/lib/pkgconfig/libpng.pc
+        dependencies/lib/pkgconfig/libpng16.pc
+        dependencies/lib/pkgconfig/zlib.pc
         AcroForm.cc
         AcroForm.h
         Annot.cc
@@ -313,7 +313,7 @@ set_target_properties(XPDFBUILD PROPERTIES
 )
 
 install(TARGETS XPDFBUILD
-	LIBRARY DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/lib
+	ARCHIVE DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/lib
 	RUNTIME DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin
 	PUBLIC_HEADER DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/include)
 
