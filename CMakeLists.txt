@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.31)
 project(XPDFBUILD)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -302,12 +302,15 @@ add_library(XPDFBUILD SHARED
         XRef.h
         Zoox.cc
         Zoox.h)
+		
+set_target_properties(XPDFBUILD PROPERTIES OUTPUT_NAME ${XPDFBUILD_DLL_LIB})
+set_target_properties(XPDFBUILD PROPERTIES LIBRARY_OUTPUT_NAME ${XPDFBUILD_DLL_LIB})
 
 target_link_libraries(XPDFBUILD
 	freetype
     libpng16
     zlib)
-	
+
 set_target_properties(XPDFBUILD PROPERTIES
     PUBLIC_HEADER "external_include/pdftotext.h"
 )
